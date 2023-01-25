@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Numeros extends StatelessWidget {
-  const Numeros({super.key});
+class RowColScreen extends StatelessWidget {
+  const RowColScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class Numeros extends StatelessWidget {
     return Expanded(
         child: Container(
             color: color,
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(50),
             child: Text(
               text,
               textAlign: TextAlign.center,
