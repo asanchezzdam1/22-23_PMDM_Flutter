@@ -5,18 +5,9 @@ class RowColMQScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppBar appBar = AppBar(
-      title: const Text('Numeros'),
-      backgroundColor: Colors.amber,
-      elevation: 20,
-      shadowColor: Colors.black,
-    );
-
-    double tamano =
-        (MediaQuery.of(context).size.height - appBar.preferredSize.height) / 3;
+    double tamano = (MediaQuery.of(context).size.height) / 3;
 
     return Scaffold(
-      appBar: appBar,
       body: Column(children: [
         Row(children: [
           creaBloque(color: Colors.lightBlue, text: '1', height: tamano),

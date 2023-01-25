@@ -22,10 +22,6 @@ class CounterStatelessScreen extends StatelessWidget {
 
     return Scaffold(
         backgroundColor: Colors.indigo,
-        appBar: AppBar(
-          backgroundColor: Colors.indigoAccent,
-          title: const Text('Eco Sharing'),
-        ),
         body: miElementoCentrado,
         floatingActionButton: FloatingActionButton(
           onPressed: (() {

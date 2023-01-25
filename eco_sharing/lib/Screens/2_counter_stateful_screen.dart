@@ -42,10 +42,6 @@ class _CounterScreenState extends State<StatefulWidget> {
 
     return Scaffold(
         backgroundColor: Colors.indigo,
-        appBar: AppBar(
-          backgroundColor: Colors.indigoAccent,
-          title: const Text('Eco Sharing'),
-        ),
         body: miElementoCentrado,
         floatingActionButton: CustomFloatingActions(
           increaseFn: increase,

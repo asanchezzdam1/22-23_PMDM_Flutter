@@ -6,12 +6,6 @@ class RowColScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Numeros'),
-        backgroundColor: Colors.amber,
-        elevation: 20,
-        shadowColor: Colors.black,
-      ),
       body: Column(children: [
         Expanded(
           child: Row(children: [
