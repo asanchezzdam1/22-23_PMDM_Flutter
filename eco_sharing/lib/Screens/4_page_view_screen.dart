@@ -16,7 +16,8 @@ class PageViewScreen extends StatelessWidget {
           elevation: 20,
           shadowColor: Colors.black),
       body: PageView(
-        controller: PageController(),
+        controller: PageController(initialPage: 2),
+        scrollDirection: Axis.vertical,
         children: const [
           CounterStatelessScreen(),
           CounterStatefulScreen(),

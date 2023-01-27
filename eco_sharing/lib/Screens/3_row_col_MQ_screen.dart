@@ -5,7 +5,9 @@ class RowColMQScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double tamano = (MediaQuery.of(context).size.height) / 3;
+    double tamano =
+        (MediaQuery.of(context).size.height - AppBar().preferredSize.height) /
+            3;
 
     return Scaffold(
       body: Column(children: [
