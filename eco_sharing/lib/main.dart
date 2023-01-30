@@ -1,4 +1,4 @@
-import 'package:eco_sharing/Screens/5_page_view_enlazados_screen.dart';
+import 'package:eco_sharing/Screens/6_bottom_nav_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +12,7 @@ class EcoSharing extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: PageViewEnlazadosScreen(),
+      home: BottomNavScreen(),
     );
   }
 }
