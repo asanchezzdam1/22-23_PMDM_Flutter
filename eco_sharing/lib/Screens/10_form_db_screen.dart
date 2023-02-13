@@ -12,7 +12,7 @@ class FormDBScreen extends StatelessWidget {
       'nombre': '',
       'apellidos': '',
       'email': '',
-      'contraseña': '',
+      'contrasena': '',
       'rol': ''
     };
 
@@ -50,7 +50,7 @@ class FormDBScreen extends StatelessWidget {
                       labelText: 'Contraseña',
                       hintText: 'Contraseña del usuario',
                       obscureText: true,
-                      formProperty: 'contraseña',
+                      formProperty: 'contrasena',
                       formValues: datosForm),
                   const SizedBox(height: 30),
                   DropdownButtonFormField<String>(

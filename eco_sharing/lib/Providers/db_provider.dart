@@ -61,7 +61,7 @@ class DBProvider {
     return res;
   }
 
-  Future<int> nuevoScan(UserModel nuevoUser) async {
+  Future<int> nuevoUser(UserModel nuevoUser) async {
     final db = await database;
     final res = await db!.insert('Users', nuevoUser.toJson());
 
@@ -69,7 +69,7 @@ class DBProvider {
     return res;
   }
 
-  Future<UserModel?> getScanById(int id) async {
+  Future<UserModel?> getUserById(int id) async {
     final db = await database;
     final res = await db!.query('Users', where: 'id = ?', whereArgs: [id]);
 
@@ -96,7 +96,7 @@ class DBProvider {
     return res;
   }
 
-  Future<int> deleteAllScans() async {
+  Future<int> deleteAllUsers() async {
     final db = await database;
     final res = await db!.rawDelete('''
       DELETE FROM Users    

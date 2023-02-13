@@ -14,7 +14,6 @@ class EcoSharing extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: FormDBScreen(),
-      theme: CustomLightTheme.themeData,
     );
   }
 }
