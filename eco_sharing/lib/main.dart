@@ -1,4 +1,5 @@
-import 'package:eco_sharing/Screens/6_bottom_nav_screen.dart';
+import 'package:eco_sharing/Screens/10_form_db_screen.dart';
+import 'package:eco_sharing/Themes/light_theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,9 +11,10 @@ class EcoSharing extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BottomNavScreen(),
+      home: FormDBScreen(),
+      theme: CustomLightTheme.themeData,
     );
   }
 }

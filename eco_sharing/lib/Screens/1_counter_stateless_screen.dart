@@ -1,3 +1,4 @@
+import 'package:eco_sharing/Themes/light_theme.dart';
 import 'package:flutter/material.dart';
 
 class CounterStatelessScreen extends StatelessWidget {
@@ -21,9 +22,12 @@ class CounterStatelessScreen extends StatelessWidget {
     ));
 
     return Scaffold(
-        backgroundColor: Colors.indigo,
+        appBar: AppBar(
+          title: const Text('Ejemplo'),
+        ),
         body: miElementoCentrado,
         floatingActionButton: FloatingActionButton(
+          backgroundColor: CustomLightTheme.primary,
           onPressed: (() {
             counter++;
             print('Hola mundo');
