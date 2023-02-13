@@ -1,3 +1,5 @@
+import 'package:eco_sharing/Models/user_model.dart';
+import 'package:eco_sharing/Providers/db_provider.dart';
 import 'package:eco_sharing/Widgets/custom_input_field.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +15,7 @@ class FormDBScreen extends StatelessWidget {
       'apellidos': '',
       'email': '',
       'contrasena': '',
-      'rol': ''
+      'tipo': ''
     };
 
     return Scaffold(
@@ -66,24 +68,54 @@ class FormDBScreen extends StatelessWidget {
                             child: Text('Jr. Developer')),
                       ],
                       onChanged: (value) {
-                        datosForm['rol'] = value ?? 'Admin';
+                        datosForm['tipo'] = value ?? 'Admin';
                       }),
+                  const SizedBox(height: 30),
                   ElevatedButton(
                     child: const SizedBox(
                         width: double.infinity,
                         child: Center(child: Text('Guardar'))),
                     onPressed: () {
-                      FocusScope.of(context).requestFocus(FocusNode());
-
                       if (!formKey.currentState!.validate()) {
                         print('Formulario no válido');
                         return;
                       }
 
                       //* imprimir valores del formulario
-                      print(datosForm);
+                      //* print(datosForm);
+
+                      //* Guardar datos en BD
+                      //* 1º Crear el objeto usuario siguiendo nuestro modelo
+                      UserModel user = UserModel(
+                          nombre: datosForm['nombre']!,
+                          apellidos: datosForm['apellidos']!,
+                          email: datosForm['email']!,
+                          contrasena: datosForm['contrasena']!,
+                          tipo: datosForm['tipo']!);
+
+                      //* 2º Añadir el usuario a la BBDD (INSERT)
+                      DBProvider.db.nuevoUser(user);
                     },
-                  )
+                  ),
+                  const SizedBox(height: 10),
+                  ElevatedButton(
+                    child: const SizedBox(
+                        width: double.infinity,
+                        child: Center(child: Text('Listar Usuarios'))),
+                    onPressed: () {
+                      //* Mostrar usuarios de la BD
+                      DBProvider.db.getTodosLosUsers();
+                    },
+                  ),
+                  const SizedBox(height: 10),
+                  ElevatedButton(
+                      child: const SizedBox(
+                          width: double.infinity,
+                          child: Center(child: Text('Borrar Usuarios'))),
+                      onPressed: () {
+                        //* Borrar todos los usuarios de la BBDD
+                        DBProvider.db.deleteAllUsers();
+                      })
                 ],
               ),
             ),

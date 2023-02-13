@@ -36,4 +36,11 @@ class UserModel {
         "contrasena": contrasena,
         "tipo": tipo
       };
+
+  @override
+  String toString() {
+    String toString =
+        'id: $id\nnombre: $nombre\napellidos: $apellidos\ncorreo: $email\ncontrasena: $contrasena\ntipo: $tipo';
+    return toString;
+  }
 }

@@ -23,9 +23,6 @@ class DBProvider {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     final path = join(documentsDirectory.path, 'TestDB.db');
 
-    // TODO Borrar, solo para mostrar la ruta
-    print(path);
-
     // Crear base de datos
     return await openDatabase(path, version: 1, onOpen: (db) {},
         onCreate: (Database db, int version) async {
@@ -65,7 +62,8 @@ class DBProvider {
     final db = await database;
     final res = await db!.insert('Users', nuevoUser.toJson());
 
-    // Es el ID del último registro insertado;
+    // *Es el ID del último registro insertado;
+    print('NUEVO USUARIO: {$res}');
     return res;
   }
 
@@ -80,6 +78,19 @@ class DBProvider {
     final db = await database;
     final res = await db!.query('Users');
 
+    //* Añadido para mostrar todos los usuarios en la consola:
+    if (res.isNotEmpty) {
+      print('****************************************************************');
+      for (Map<String, Object?> userJson in res) {
+        UserModel usuario = UserModel.fromJson(userJson);
+        //* Llamo a mi implementación del toString del UserModel
+        print(usuario);
+        print('--------------------------------------');
+      }
+      print('****************************************************************');
+    } else {
+      print('No hay usuarios en la BD');
+    }
     return res.isNotEmpty ? res.map((s) => UserModel.fromJson(s)).toList() : [];
   }
 
@@ -101,6 +112,8 @@ class DBProvider {
     final res = await db!.rawDelete('''
       DELETE FROM Users    
     ''');
+
+    print('Se han borrado todos los Usuarios');
     return res;
   }
 }
